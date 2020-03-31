@@ -3,6 +3,11 @@ const router = express.Router();
 
 const PlanetService = require('../services/planet.service');
 
+
+async function getAll (req, res){
+    return res.status(200).json( await PlanetService.getAll());
+}
+
 //get all planets
 router.get('/', async (req, res) => {
     res.status(200).json( await PlanetService.getAll());
@@ -33,6 +38,6 @@ router.delete('/:id', (req, res) =>{
 
 }) 
 
-module.exports = router;
-
+//module.exports = router;
+module.exports = { getAll }
 
