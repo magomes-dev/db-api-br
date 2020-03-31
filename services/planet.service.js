@@ -23,11 +23,10 @@ async function createPlanet(planetToCreate){
         if (testUnique != null) {
             return { success: false, error: "Este planeta já existe" };   
         }        
-
         
         const planet = await models.Planet.create(planetToCreate);
         
-        return { success: false, body: planet.id }
+        return { success: true, body: {id: planet.id} }
 
     } catch (err) {
         return { success: false, error: err };
