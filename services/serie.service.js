@@ -1,50 +1,49 @@
-const models = require('../models');
+const {Serie} = require('../models');
 
 module.exports = {
     getAll,
-    createPlanet,
-    deletePlanet,
-    updatePlanet,
+    createSerie,
+    deleteSerie,
+    updateSerie,
     getById
 }
 
 
 async function getAll(){
-    return models.Planet.findAll()
-    .then(result => {
-        return { success: true, body: result };
-    })
-    .catch(err =>{
-        return { success: false, error: err.toString() };
-    });
+
+    return Serie.findAll()
+            .then(result => {
+                return { success: true, body: result };
+            })
+            .catch(err =>{
+                return { success: false, error: err.toString() };
+            });
+
 }
 /**
  * @returns {Promise<{success: boolean, error: *}|{success: boolean, body: *}>}
  */
-async function createPlanet(planetToCreate){
+async function createSerie(serieToCreate){
 
     try {        
         //Verifica se existe um planeta com este nome
-        const testUnique = await models.Planet.findOne({
-            where: { name: planetToCreate.name }
+        const testUnique = await Serie.findOne({
+            where: { name: serieToCreate.name }
         });
 
         if (testUnique != null) {
-            return { success: false, error: "Este planeta já existe" };   
+            return { success: false, error: "Esta saga já existe" };   
         }        
         
-        return models.Planet.create(planetToCreate)
+        return Serie.create(serieToCreate)
                 .then( result => { 
-                    console.log('result: ' + result)
                     return { success: true, body: result };
                 })
                 .catch(function (err) {
-                    console.log('Create planet erro: ' + err)
                     return { success: false, error: err.toString() };
                 })
         
     } catch (err) {
-        console.log('catch: ' + err);
         return { success: false, error: err.toString() };
     }
 }
@@ -52,8 +51,8 @@ async function createPlanet(planetToCreate){
 /**
  * @returns {Promise<{success: boolean, error: *}|{success: boolean, body: *}>}
  */
-async function deletePlanet(id){
-    return models.Planet.destroy({ where: {id: id} })
+async function deleteSerie(id){
+    return Serie.destroy({ where: {id: id} })
             .then( result => {
                 return { success: true, body: result }
             })
@@ -65,8 +64,8 @@ async function deletePlanet(id){
 /**
  * @returns {Promise<{success: boolean, error: *}|{success: boolean, body: *}>}
  */
-async function updatePlanet(id, planetToUpdate){
-    return models.Planet.update(planetToUpdate, {where: { id: id } })
+async function updateSerie(id, serieToUpdate){
+    return Serie.update(serieToUpdate, {where: { id: id } })
             .then( result => {
                 return { success: true, body: result }
             })
@@ -79,7 +78,7 @@ async function updatePlanet(id, planetToUpdate){
  * @returns {Promise<{success: boolean, error: *}|{success: boolean, body: *}>}
  */
 async function getById(id){
-    return models.Planet.findByPk(id)            
+    return Serie.findByPk(id)            
     .then( result => {
         return { success: true, body: result }
     })

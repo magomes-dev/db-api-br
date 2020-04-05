@@ -1,16 +1,16 @@
-const PlanetService = require('../services/planet.service');
+const SerieService = require('../services/serie.service');
 
 
 async function getAll(req, res) {
-    const result = await PlanetService.getAll(); 
+    const result = await SerieService.getAll(); 
     if ( result.success === true ) return res.status(200).json(result.body);
     return res.status(400).json( {error: result.error});
 }
 
-async function createPlanet(req, res) {
+async function createSerie(req, res) {
     try{
 
-        const result = await PlanetService.createPlanet(req.body); 
+        const result = await SerieService.createSerie(req.body); 
         if ( result.success === true ) return res.status(201).json(result.body);
         return res.status(400).json( {error: result.error});
 
@@ -19,17 +19,17 @@ async function createPlanet(req, res) {
     }
 }
 
-async function deletePlanet(req, res){
+async function deleteSerie(req, res){
     const id = req.params.id;
-    const result = await PlanetService.deletePlanet(id);
+    const result = await SerieService.deleteSerie(id);
     if ( result.success === true ) return res.status(200).json(result.body);
     else  return res.status(400).json( {error: result.error});    
 }
 
-async function updatePlanet(req, res){
+async function updateSerie(req, res){
 
     const id = req.params.id;
-    const result = await PlanetService.updatePlanet(id, req.body);
+    const result = await SerieService.updateSerie(id, req.body);
     if ( result.success === true ) return res.status(200).json(result.body);
     else  return res.status(400).json( {error: result.error});     
 
@@ -37,16 +37,16 @@ async function updatePlanet(req, res){
 
 async function getById(req, res){
     const id = req.params.id;
-    const result = await PlanetService.getById(id);
+    const result = await SerieService.getById(id);
     if ( result.success === true ) return res.status(200).json(result.body);
     else  return res.status(400).json( {error: result.error}); 
 }
 
 module.exports = {
     getAll,
-    createPlanet,
-    deletePlanet,
-    updatePlanet,
+    createSerie,
+    deleteSerie,
+    updateSerie,
     getById
 }
 

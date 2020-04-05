@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
 
 module.exports = router;
 
-const planets = require( "./planets" );
+const planets = require('./planets');
+const series  = require('./series');
 
 const routes = app => {
     app.use( ( req, res, next ) => {
@@ -37,6 +38,7 @@ const routes = app => {
     });
 
     app.use('/planets', planets)
+    app.use('/series', series)
 
 };
 
