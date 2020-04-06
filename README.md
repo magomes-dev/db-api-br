@@ -10,7 +10,7 @@ Minha inspiração vem da [SWAPI - The Star Wars API](https://swapi.co/), vi em 
 Colocar em prática o que estou aprendendo sobre Node.Js 
 
 ## Documentação da API
-[Documentação](https://documenter.getpostman.com/view/2137744/SzYbzHpb)
+[Documentação](https://documenter.getpostman.com/view/2137744/SzYbzHpb) completa dos endpoints.
 
 ## Solution Stacks
 
