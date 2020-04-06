@@ -7,5 +7,12 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'planets'
     });
 
+    Planet.associate = (models) =>{
+        Planet.hasMany(models.Character, {
+            foreignKey: 'originPlanetId',
+            as: 'characters'
+        })
+    }
+
     return Planet;
 }

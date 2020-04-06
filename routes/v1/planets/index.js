@@ -1,6 +1,6 @@
 const express = require( 'express' );
 let router = express.Router();
-const controller = require( '../../controllers/planet.controller' )
+const controller = require( '../../../controllers/planet.controller' )
 
 
 

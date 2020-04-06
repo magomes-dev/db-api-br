@@ -1,22 +1,21 @@
 module.exports = (sequelize, DataTypes) => {
-    const Serie = sequelize.define('Serie', {
+    const Species = sequelize.define('Species', {
         name: DataTypes.STRING,
         description: DataTypes.STRING,
-        image: DataTypes.STRING,
         createdAt: DataTypes.DATE
     },{
-        tableName: 'series'
+        tableName: 'species'
     });
 
-    Serie.associate = (models) => {
-        Serie.hasMany(
+    Species.associate = (models) => {
+        Species.hasMany(
             models.Character, 
             {
-                foreignKey: 'originalSerieId',
+                foreignKey: 'speciesId',
                 as: 'characters'
             }
         );
     }
 
-    return Serie;
+    return Species;
 }

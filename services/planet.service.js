@@ -1,4 +1,5 @@
 const models = require('../models');
+const { Character } = require('../models');
 
 module.exports = {
     getAll,
@@ -10,7 +11,7 @@ module.exports = {
 
 
 async function getAll(){
-    return models.Planet.findAll()
+    return models.Planet.findAll( { include: 'characters' } )
     .then(result => {
         return { success: true, body: result };
     })
@@ -79,7 +80,7 @@ async function updatePlanet(id, planetToUpdate){
  * @returns {Promise<{success: boolean, error: *}|{success: boolean, body: *}>}
  */
 async function getById(id){
-    return models.Planet.findByPk(id)            
+    return models.Planet.findByPk(id, { include: 'characters' } )            
     .then( result => {
         return { success: true, body: result }
     })

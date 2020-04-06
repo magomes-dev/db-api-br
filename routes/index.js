@@ -8,8 +8,10 @@ router.get('/', (req, res) => {
 
 module.exports = router;
 
-const planets = require('./planets');
-const series  = require('./series');
+const planets = require('./v1/planets');
+const series  = require('./v1/series');
+const species = require('./v1/species');
+const characters = require('./v1/characters');
 
 const routes = app => {
     app.use( ( req, res, next ) => {
@@ -37,8 +39,10 @@ const routes = app => {
         res.json({"db-api-br": "API Dragon Ball em construção"});
     });
 
-    app.use('/planets', planets)
-    app.use('/series', series)
+    app.use('/v1/planets', planets)
+    app.use('/v1/series', series)
+    app.use('/v1/species', species)
+    app.use('/v1/characters', characters)
 
 };
 
