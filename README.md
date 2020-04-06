@@ -18,6 +18,7 @@ Colocar em prática o que estou aprendendo sobre Node.Js
 * Node.JS
 * Express.Js - Rotas
 * ExpressJwt, JsonWebToken - Autenticação JWT
+* Express-rate-limit - Limitar operações por IP
 * MariaDb - Banco de dados
 * Sequelize - ORM
 
@@ -26,8 +27,7 @@ Meu foco no momento é desenvolver o back-end.
 Não decidi ainda o que usar para construir o front. Estou em duvida entre Angular ou React.
 
 ### RoadMap
-* Implementar Rate-Limit (express-rate-limit) para interromper ataques por IP.
-* Testes
+* Implementar testes
 
 ### Deixe sua sugestão
 Peço sua sugestão de tecnicas/conceitos que seria interessante aplicar neste projeto
