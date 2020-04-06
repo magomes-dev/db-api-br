@@ -9,6 +9,9 @@ Minha inspiração vem da famosa [SWAPI - The Star Wars API](https://swapi.co/),
 ## Motivo
 Colocar em prática o que estou aprendendo sobre Node.Js 
 
+## Documentação da API
+[Documentação](https://documenter.getpostman.com/view/2137744/SzYbzHpb)
+
 ## Solution Stacks
 
 ### Back-end
@@ -20,15 +23,6 @@ Colocar em prática o que estou aprendendo sobre Node.Js
 ### Front-end
 Meu foco no momento é desenvolver o back-end.
 Não decidi ainda o que usar para construir o front. Estou em duvida entre Angular ou React.
-
-### Desenvolvido até o momento
-
-* Endpoints
-
-|Método |Rota                   | Descrição               |
-|-------|-----------------------|-----------------------  |
-|GET    | /planets              | Retorna todos planetas. |
-|POST   | /planets              | Cria um novo plaenta.   |
 
 ### RoadMap
 
