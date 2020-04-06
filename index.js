@@ -2,18 +2,20 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const routes = require( './routes' );
+const jwt = require('./_helpers/jwt');
+const errorHandler = require('./_helpers/error-handler');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// api routes
-// app.get('/', (req, res) => {
-//     res.json({"db-api-br": "API Dragon Ball em construção"});
-// });
-
-// app.use('/planets', require('./app/controllers/planet.controller'));
+//Usa autenticação Jwt
+app.use(jwt());
 
 // Pass app to routes
 routes( app );
+
+// global error handler
+app.use(errorHandler);
+
 
 app.listen(3000);

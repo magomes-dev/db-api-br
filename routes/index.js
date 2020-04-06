@@ -12,6 +12,7 @@ const planets = require('./v1/planets');
 const series  = require('./v1/series');
 const species = require('./v1/species');
 const characters = require('./v1/characters');
+const users = require('./v1/users');
 
 const routes = app => {
     app.use( ( req, res, next ) => {
@@ -43,6 +44,7 @@ const routes = app => {
     app.use('/v1/series', series)
     app.use('/v1/species', species)
     app.use('/v1/characters', characters)
+    app.use('/v1/users', users)
 
 };
 
