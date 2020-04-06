@@ -1,6 +1,6 @@
-![logo_prj](http://www.intertechno.net/pic007.jpg)
+![logo](https://img.elo7.com.br/product/original/1C553C0/painel-festa-2x1m-dragon-ball-super-goku.jpg)
 
-# Dragon Ball API - BR
+# Dragon Ball API - BR (Em construção)
 Uma base de dados colaborativa com informações sobre o anime dragon ball: sagas, personagens, raças, planetas e etc...
 
 ## Inspiração
