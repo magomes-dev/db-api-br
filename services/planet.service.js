@@ -1,5 +1,5 @@
-const models = require('../models');
-const { Character } = require('../models');
+require('rootpath')();
+const models = require('database/models');
 
 module.exports = {
     getAll,

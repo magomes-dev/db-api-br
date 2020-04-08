@@ -1,7 +1,8 @@
-const {Character} = require('../models');
-const {Species} = require('../models');
-const {Planet} = require('../models');
-const {Serie} = require('../models');
+require('rootpath')();
+const {Character} = require('database/models');
+const {Species} = require('database/models');
+const {Planet} = require('database/models');
+const {Serie} = require('database/models');
 
 
 module.exports = {

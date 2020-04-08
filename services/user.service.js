@@ -1,7 +1,8 @@
-const config = require('../config.json');
+require('rootpath')();
+const config = require('config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const {User} = require('../models');
+const {User} = require('database/models');
 
 
 module.exports = {

@@ -1,4 +1,5 @@
-const {Serie} = require('../models');
+require('rootpath')();
+const {Serie} = require('database/models');
 
 module.exports = {
     getAll,

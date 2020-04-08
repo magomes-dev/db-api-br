@@ -1,9 +1,11 @@
+require('rootpath')();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const routes = require( './routes' );
-const jwt = require('./_helpers/jwt');
-const errorHandler = require('./_helpers/error-handler');
+const routes = require( 'routes' );
+const jwt = require('_helpers/jwt');
+const errorHandler = require('_helpers/error-handler');
+var db = require('database/models');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,4 +20,6 @@ routes( app );
 app.use(errorHandler);
 
 
-app.listen(3000);
+app.listen(3000, ()=>{
+    db.sequelize.sync();
+});

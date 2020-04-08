@@ -1,4 +1,5 @@
-const {Species} = require('../models');
+require('rootpath')();
+const {Species} = require('database/models');
 
 module.exports = {
     getAll,
