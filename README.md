@@ -1,7 +1,7 @@
 ![logo](https://img.elo7.com.br/product/original/1C553C0/painel-festa-2x1m-dragon-ball-super-goku.jpg)
 
 # Dragon Ball API - BR (Em construção)
-Dragon Ball API - BR é uma API RESTful inspirada na série televisão Dragon Ball. Uma base de dados colaborativa com as principais informações dos personagens como: nome, planeta de origem, saga de origem e raça.
+Dragon Ball API - BR é uma API RESTful inspirada na série de televisão Dragon Ball. Uma base de dados colaborativa com as principais informações dos personagens como: nome, planeta de origem, saga de origem e raça.
 Após registro e autenticação, o usuário será limitado a 100 consultas a cada 15 minutos e 5 operações de escrita a cada 10 minutos.
 
 ## Como obter e executar uma cópia local
