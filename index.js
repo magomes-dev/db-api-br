@@ -21,5 +21,5 @@ app.use(errorHandler);
 
 
 app.listen(3000, ()=>{
-    db.sequelize.sync();
+    //db.sequelize.sync();
 });

@@ -17,9 +17,11 @@ async function authenticate({ userName, password }) {
         where: {userName: userName }
     })
     .then(user => {
-        if (user && bcrypt.compareSync(password, user.hash)) {        
+        if (user && bcrypt.compareSync(password, user.hash)) {     
             
-            const token = jwt.sign({ sub: user.id }, config.secret);
+            const data = {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName}
+            
+            const token = jwt.sign(data, config.secret, {expiresIn: "6h"} )
             
             return { success: true, body: token }
         }
@@ -28,15 +30,13 @@ async function authenticate({ userName, password }) {
     })
     .catch(function (err) {
         return { success: false, error: err.toString() };
-    })
-
-    
+    })    
 }
 
 async function getById(id){
     return User.findByPk(id)            
-    .then( result => {
-        return { success: true, body: result }
+    .then( user => {
+        return { success: true, body: {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName} }
     })
     .catch( err => {
         return { success: false, error: err.toString() }
@@ -45,7 +45,6 @@ async function getById(id){
 
 async function create(createUser) {
 
-    //Verifica se existe um planeta com este nome
     const testUnique = await User.findOne({
         where: { userName: createUser.userName }
     });
@@ -59,8 +58,8 @@ async function create(createUser) {
     }
     
     return User.create(createUser)
-                .then( result => { 
-                    return { success: true, body: result };
+                .then( user => { 
+                    return { success: true, body: {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName} };
                 })
                 .catch(function (err) {
                     return { success: false, error: err.toString() };
