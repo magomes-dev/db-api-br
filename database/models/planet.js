@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Planet = sequelize.define('Planet', {
-        name: DataTypes.STRING,
-        url: DataTypes.STRING,
+        name: DataTypes.STRING(100),
+        image: DataTypes.STRING,
         createdAt: DataTypes.DATE
     },{
         tableName: 'planets'

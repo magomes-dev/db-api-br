@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Species = sequelize.define('Species', {
-        name: DataTypes.STRING,
-        description: DataTypes.STRING,
+        name: DataTypes.STRING(100),
+        description: DataTypes.STRING(2000),
         createdAt: DataTypes.DATE
     },{
         tableName: 'species'

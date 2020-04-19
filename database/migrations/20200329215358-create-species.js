@@ -14,13 +14,13 @@ module.exports = {
 
       name: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
         unique: true
       },
 
       description: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(2000)
       },
 
       // Timestamps

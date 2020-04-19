@@ -13,19 +13,19 @@ module.exports = {
 
       userName: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(30),
         unique: true
       },
 
 
       firstName: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(30)
       },
       
       lastName: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(30)
       },
 
       hash: {
@@ -39,8 +39,7 @@ module.exports = {
         type: Sequelize.STRING,
         validate:{
           isEmail : true
-        },
-        unique: true
+        }
       },
 
       // Timestamps

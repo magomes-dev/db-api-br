@@ -1,16 +1,18 @@
 const express = require( 'express' );
 let router = express.Router();
-const controller = require( '../../../controllers/species.controller' )
-const rateLimit = require('../../../_helpers/rate-limit')
+const controller = require( 'controllers/species.controller' )
+const rateLimit = require('middleware/rate-limit')
+const {species} = require('routes/schemas/schemas'); 
+const middleware = require('middleware/validate-schema-request'); 
 
 
 router.get('/', rateLimit.queryLimiter, controller.getAll);
 
-router.post('/', rateLimit.PostPutDeleteLimiter, controller.createSpecies);
+router.post('/', middleware(species.create), rateLimit.PostPutDeleteLimiter, controller.createSpecies);
 
 router.delete('/:id', rateLimit.PostPutDeleteLimiter, controller.deleteSpecies)
 
-router.put('/:id', rateLimit.PostPutDeleteLimiter, controller.updateSpecies)
+router.put('/:id', middleware(species.update), rateLimit.PostPutDeleteLimiter, controller.updateSpecies)
 
 router.get('/:id', rateLimit.queryLimiter, controller.getById)
 
