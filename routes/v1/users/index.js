@@ -1,12 +1,12 @@
 const express = require( 'express' );
 let router = express.Router();
 const controller = require( '../../../controllers/user.controller' )
-const rateLimit = require('../../../_helpers/rate-limit')
+const rateLimit = require('../../../middleware/rate-limit')
+const {user} = require('routes/schemas/schemas'); 
+const middleware = require('middleware/validate-schema-request'); 
 
+router.post('/register', middleware(user.register), rateLimit.registerLimiter, controller.createUser);
 
-router.post('/register', rateLimit.registerLimiter, controller.createUser);
-
-router.post('/authenticate', controller.authenticateUser)
-
+router.post('/authenticate', middleware(user.authenticate), controller.authenticateUser)
 
 module.exports = router;

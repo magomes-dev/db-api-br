@@ -14,11 +14,11 @@ module.exports = {
 
       name: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
         unique: true
       },
 
-      url: {
+      image: {
         allowNull: false,
         type: Sequelize.STRING
       },

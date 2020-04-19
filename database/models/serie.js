@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Serie = sequelize.define('Serie', {
-        name: DataTypes.STRING,
-        description: DataTypes.STRING,
+        name: DataTypes.STRING(100),
+        description: DataTypes.STRING(2000),
         image: DataTypes.STRING,
         createdAt: DataTypes.DATE
     },{

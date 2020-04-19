@@ -3,8 +3,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const routes = require( 'routes' );
-const jwt = require('_helpers/jwt');
-const errorHandler = require('_helpers/error-handler');
+const jwt = require('middleware/jwt');
+const errorHandler = require('middleware/error-handler');
 var db = require('database/models');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,5 +21,6 @@ app.use(errorHandler);
 
 
 app.listen(3000, ()=>{
+    //console.log(process.env.NODE_ENV);
     //db.sequelize.sync();
 });

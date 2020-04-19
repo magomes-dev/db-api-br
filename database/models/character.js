@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Character = sequelize.define('Character', {
-        name: DataTypes.STRING,
+        name: DataTypes.STRING(100),
         gender: DataTypes.STRING(1),
         image: DataTypes.STRING,
         speciesId: DataTypes.INTEGER,
