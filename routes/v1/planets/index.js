@@ -3,7 +3,7 @@ let router = express.Router();
 const controller = require( 'controllers/planet.controller' )
 const rateLimit = require('middleware/rate-limit')
 const {planets} = require('routes/schemas/schemas'); 
-const middleware = require('middleware/validate-schema-request');
+const middleware = require('middleware/validate-schema');
 
 
 

@@ -1,8 +1,8 @@
-require('rootpath')();
 const config = require('config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const {User} = require('database/models');
+const BusinessLogicError = require('utils/BusinessLogicError')
 
 
 module.exports = {
@@ -12,58 +12,55 @@ module.exports = {
 };
 
 async function authenticate({ userName, password }) {
-
     return User.findOne({
         where: {userName: userName }
     })
     .then(user => {
-        if (user && bcrypt.compareSync(password, user.hash)) {     
-            
-            const data = {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName}
-            
-            const token = jwt.sign(data, config.secret, {expiresIn: "6h"} )
-            
-            return { success: true, body: token }
+        if (user && bcrypt.compareSync(password, user.hash)) {
+            const data = {
+                id: user.id, 
+                userName: user.userName, 
+                email: user.email, 
+                firstName: user.firstName
+            }            
+            const token = jwt.sign(data, config.secret, {expiresIn: "6h"} )            
+            return { token }
         }
-
-        return { success: false, error: "Usuário/Senha incorreto!" };        
-    })
-    .catch(function (err) {
-        return { success: false, error: err.toString() };
-    })    
+        throw new BusinessLogicError("Usuário/Senha incorreto!");        
+    })   
 }
 
 async function getById(id){
     return User.findByPk(id)            
     .then( user => {
-        return { success: true, body: {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName} }
-    })
-    .catch( err => {
-        return { success: false, error: err.toString() }
+        return { 
+            id: user.id, 
+            userName: user.userName, 
+            email: user.email, 
+            firstName: user.firstName 
+        }
     })
 }
 
 async function create(createUser) {
-
     const testUnique = await User.findOne({
         where: { userName: createUser.userName }
     });
-
     if (testUnique != null) {
-        return { success: false, error: "Usuario já registrado" };   
-    }   
-    
+        throw new BusinessLogicError("Usuario já registrado")   
+    }       
     if (createUser.password) {
         createUser.hash = bcrypt.hashSync(createUser.password, 10);
-    }
-    
+    }    
     return User.create(createUser)
-                .then( user => { 
-                    return { success: true, body: {id: user.id, userName: user.userName, email: user.email, firstName: user.firstName} };
-                })
-                .catch(function (err) {
-                    return { success: false, error: err.toString() };
-                })
+        .then( user => { 
+            return { 
+                id: user.id, 
+                userName: user.userName, 
+                email: user.email, 
+                firstName: user.firstName 
+            };
+        })
 }
 
 // async function update(id, userParam) {
