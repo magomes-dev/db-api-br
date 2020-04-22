@@ -3,7 +3,7 @@ let router = express.Router();
 const controller = require( 'controllers/species.controller' )
 const rateLimit = require('middleware/rate-limit')
 const {species} = require('routes/schemas/schemas'); 
-const middleware = require('middleware/validate-schema-request'); 
+const middleware = require('middleware/validate-schema'); 
 
 
 router.get('/', rateLimit.queryLimiter, controller.getAll);

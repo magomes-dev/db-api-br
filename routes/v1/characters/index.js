@@ -4,7 +4,7 @@ let router = express.Router();
 const controller = require( 'controllers/character.controller' )
 const rateLimit = require('middleware/rate-limit')
 const {characters} = require('routes/schemas/schemas'); 
-const middleware = require('middleware/validate-schema-request');
+const middleware = require('middleware/validate-schema');
 
 
 

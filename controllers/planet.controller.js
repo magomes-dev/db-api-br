@@ -1,45 +1,58 @@
 const PlanetService = require('../services/planet.service');
 
 
-async function getAll(req, res) {
-    const result = await PlanetService.getAll(); 
-    if ( result.success === true ) return res.status(200).json(result.body);
-    return res.status(400).json( {error: result.error});
+async function getAll(req, res, next) {
+    PlanetService.getAll()
+        .then(result => {
+            return res.status(200).json(result);
+        })
+        .catch(error => {
+            next(error)
+        });   
+    
 }
 
-async function createPlanet(req, res) {
-    try{
-
-        const result = await PlanetService.createPlanet(req.body); 
-        if ( result.success === true ) return res.status(201).json(result.body);
-        return res.status(400).json( {error: result.error});
-
-    }catch (err) {
-        res.status(500).json(err.error)
-    }
+async function createPlanet(req, res, next) {
+    PlanetService.createPlanet(req.body)
+        .then(result => {                
+            return res.status(201).json(result.body);
+        })
+        .catch(error => {
+            next(error)
+        });   
 }
 
-async function deletePlanet(req, res){
+async function deletePlanet(req, res, next){
     const id = req.params.id;
-    const result = await PlanetService.deletePlanet(id);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error});    
+    PlanetService.deletePlanet(id)
+        .then(result => {
+            return res.status(200).json(result);
+        })
+        .catch(error => {
+            next(error)
+        });   
 }
 
-async function updatePlanet(req, res){
-
-    const id = req.params.id;
-    const result = await PlanetService.updatePlanet(id, req.body);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error});     
-
+async function updatePlanet(req, res, next){
+    const id = req.params.id;    
+    PlanetService.updatePlanet(id, req.body)
+        .then(result => {
+            return res.status(200).json(result);
+        })
+        .catch(error => {
+            next(error)
+        });     
 }
 
-async function getById(req, res){
+async function getById(req, res, next){
     const id = req.params.id;
-    const result = await PlanetService.getById(id);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error}); 
+    PlanetService.getById(id)
+        .then(result => {
+            return res.status(200).json(result);
+        })
+        .catch(error => {
+            next(error)
+        });    
 }
 
 module.exports = {

@@ -42,6 +42,7 @@ Certifique-se que tenha instalado em sua máquina
 * Node.JS
 * Express.Js - Rotas
 * ExpressJwt, JsonWebToken - Autenticação JWT
+* Joi - Schemas das entidades para POST e PUT
 * Express-rate-limit - Limitar operações por IP
 * MariaDb - Banco de dados
 * Sequelize - ORM
