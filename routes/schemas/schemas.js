@@ -1,19 +1,18 @@
-// schemas.js 
-const Joi = require('joi') 
+const Joi = require('joi');
 
-const user = {  
-  register: Joi.object().keys({ 
-    userName: Joi.string().regex(/^[a-z0-9_-]{3,30}$/).alphanum().min(3).max(30).required(),//letras, numeros, _ e -
+const user = {
+  register: Joi.object().keys({
+    userName: Joi.string().regex(/^[a-z0-9_-]{3,30}$/).alphanum().min(3).max(30).required(), // letras, numeros, _ e -
     firstName: Joi.string().min(3).max(30).required(),
     lastName: Joi.string().min(3).max(30).required(),
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).alphanum().required()
+    password: Joi.string().min(6).alphanum().required(),
   }),
-  authenticate: Joi.object().keys({ 
-    userName: Joi.string().alphanum().required(),    
-    password: Joi.string().alphanum().required()
-  })
-}; 
+  authenticate: Joi.object().keys({
+    userName: Joi.string().alphanum().required(),
+    password: Joi.string().alphanum().required(),
+  }),
+};
 
 const species = {
   create: Joi.object().keys({
@@ -22,9 +21,9 @@ const species = {
   }),
   update: Joi.object().keys({
     name: Joi.string().min(3).max(100),
-    description: Joi.string().min(3).max(2000)
-  })
-}
+    description: Joi.string().min(3).max(2000),
+  }),
+};
 
 const series = {
   create: Joi.object().keys({
@@ -37,7 +36,7 @@ const series = {
     description: Joi.string().min(3).max(2000),
     image: Joi.string(),
   }),
-}
+};
 
 const planets = {
   create: Joi.object().keys({
@@ -46,9 +45,9 @@ const planets = {
   }),
   update: Joi.object().keys({
     name: Joi.string().min(3).max(100),
-    image: Joi.string()
+    image: Joi.string(),
   }),
-}
+};
 
 const characters = {
   create: Joi.object().keys({
@@ -65,14 +64,14 @@ const characters = {
     image: Joi.string(),
     speciesId: Joi.number().integer(),
     originPlanetId: Joi.number().integer(),
-    originalSerieId: Joi.number().integer()
+    originalSerieId: Joi.number().integer(),
   }),
-}
+};
 
 module.exports = {
   user,
   species,
   series,
   planets,
-  characters
-}
+  characters,
+};

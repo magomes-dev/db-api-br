@@ -1,52 +1,43 @@
+/* eslint-disable arrow-body-style */
 const SpeciesService = require('../services/species.service');
 
-
-async function getAll(req, res) {
-    const result = await SpeciesService.getAll(); 
-    if ( result.success === true ) return res.status(200).json(result.body);
-    return res.status(400).json( {error: result.error});
+async function getAll(req, res, next) {
+  await SpeciesService.getAll()
+    .then((result) => { return res.status(200).json(result.body); })
+    .catch((error) => { next(error); });
 }
 
-async function createSpecies(req, res) {
-    try{
-
-        const result = await SpeciesService.createSpecies(req.body); 
-        if ( result.success === true ) return res.status(201).json(result.body);
-        return res.status(400).json( {error: result.error});
-
-    }catch (err) {
-        res.status(500).json(err.error)
-    }
+async function createSpecies(req, res, next) {
+  SpeciesService.createSpecies(req.body)
+    .then((result) => { return res.status(201).json(result.body); })
+    .catch((error) => { next(error); });
 }
 
-async function deleteSpecies(req, res){
-    const id = req.params.id;
-    const result = await SpeciesService.deleteSpecies(id);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error});    
+async function deleteSpecies(req, res, next) {
+  const { id } = req.params.id;
+  SpeciesService.deleteSpecies(id)
+    .then((result) => { return res.status(200).json(result.body); })
+    .catch((error) => { next(error); });
 }
 
-async function updateSpecies(req, res){
-
-    const id = req.params.id;
-    const result = await SpeciesService.updateSpecies(id, req.body);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error});     
-
+async function updateSpecies(req, res, next) {
+  const { id } = req.params.id;
+  SpeciesService.updateSpecies(id, req.body)
+    .then((result) => { return res.status(200).json(result.body); })
+    .catch((error) => { next(error); });
 }
 
-async function getById(req, res){
-    const id = req.params.id;
-    const result = await SpeciesService.getById(id);
-    if ( result.success === true ) return res.status(200).json(result.body);
-    else  return res.status(400).json( {error: result.error}); 
+async function getById(req, res, next) {
+  const { id } = req.params.id;
+  SpeciesService.getById(id)
+    .then((result) => { return res.status(200).json(result.body); })
+    .catch((error) => { next(error); });
 }
 
 module.exports = {
-    getAll,
-    createSpecies,
-    deleteSpecies,
-    updateSpecies,
-    getById
-}
-
+  getAll,
+  createSpecies,
+  deleteSpecies,
+  updateSpecies,
+  getById,
+};
