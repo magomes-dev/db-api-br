@@ -1,6 +1,5 @@
-function BusinessLogicError (error) {
-
-  this.name = "BusinessLogicError";
+function BusinessLogicError(error) {
+  this.name = 'BusinessLogicError';
   this.message = error;
   Error.call(this, error);
   Error.captureStackTrace(this, this.constructor);
@@ -9,5 +8,5 @@ function BusinessLogicError (error) {
 
 BusinessLogicError.prototype = Object.create(Error.prototype);
 BusinessLogicError.prototype.constructor = BusinessLogicError;
-    
+
 module.exports = BusinessLogicError;
