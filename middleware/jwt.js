@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 const expressJwt = require('express-jwt');
 const config = require('../config.json');
 const userService = require('../services/user.service');
@@ -11,7 +12,7 @@ async function isRevoked(req, payload, done) {
 }
 
 function jwt() {
-  const { secret } = config.secret;
+  const secret = config.secret;
   return expressJwt({ secret, isRevoked }).unless({
     path: [
       // public routes that don't require authentication
@@ -20,5 +21,4 @@ function jwt() {
     ],
   });
 }
-
 module.exports = jwt;
