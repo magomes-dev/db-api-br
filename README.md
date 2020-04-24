@@ -1,8 +1,11 @@
 ![logo](https://img.elo7.com.br/product/original/1C553C0/painel-festa-2x1m-dragon-ball-super-goku.jpg)
 
-# Dragon Ball API - BR (Em construção) ![Node.js CI](https://github.com/magomes-dev/db-api-br/workflows/Node.js%20CI/badge.svg)
+# Dragon Ball API - BR ![Node.js CI](https://github.com/magomes-dev/db-api-br/workflows/Node.js%20CI/badge.svg)
 Dragon Ball API - BR é uma API RESTful inspirada na série de televisão Dragon Ball. Uma base de dados colaborativa com as principais informações dos personagens como: nome, planeta de origem, saga de origem e raça.
-Após registro e autenticação, o usuário será limitado a 100 consultas a cada 15 minutos e 5 operações de escrita a cada 10 minutos.
+
+## Uso da API
+A API está disponivel em https://db-api-br.herokuapp.com/ </br>
+[Consulte aqui](https://documenter.getpostman.com/view/2137744/SzYbzHpb) a documentação completa da API 
 
 ## Como obter e executar uma cópia local
 
@@ -24,6 +27,15 @@ Certifique-se que tenha instalado em sua máquina
 ``` bash
  $ docker run -d --name maria -e MARIADB_PASSWORD=root -e MARIADB_USER=dbapi -e MARIADB_DATABASE=db-api-br -p 3306:3306  mariadb
 ```
+### Variáveis de ambiente
+Crie na raiz do projeto o arquivo .env com os seguintes parametros:
+``` c#
+DB_HOST="127.0.0.1"
+DB_USER="user_dbapi"
+DB_KEY="root"
+DB_NAME="db-api-br"
+```
+
 ### Instalando as dependências do projeto
 ``` bash
  $ npm install
@@ -32,11 +44,6 @@ Certifique-se que tenha instalado em sua máquina
 ``` bash
  $ npm start
 ```
-
-### Pronto, a aplicação estará disponível em: localhost:3000
-
-## Uso da API
-[Consulte aqui](https://documenter.getpostman.com/view/2137744/SzYbzHpb) a documentação completa da API 
 
 ## Construído com:
 * Node.JS
