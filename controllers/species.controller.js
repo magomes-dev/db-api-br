@@ -27,7 +27,7 @@ async function updateSpecies(req, res, next) {
 
 async function getById(req, res, next) {
   SpeciesService.getById(req.params.id)
-    .then((result) => { return res.status(200).json(result.body); })
+    .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
 
