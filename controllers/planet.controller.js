@@ -9,7 +9,7 @@ async function getAll(req, res, next) {
 
 async function createPlanet(req, res, next) {
   PlanetService.createPlanet(req.body)
-    .then((result) => { return res.status(200).json(result); })
+    .then((result) => { return res.status(201).json(result); })
     .catch((error) => { next(error); });
 }
 
