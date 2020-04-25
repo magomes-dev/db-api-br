@@ -9,7 +9,7 @@ async function getAll(req, res, next) {
 }
 
 async function createCharacter(req, res, next) {
-  CharacterService.createCharacter(req)
+  CharacterService.createCharacter(req.body)
     .then((result) => { return res.status(201).json(result); })
     .catch((error) => { next(error); });
 }
