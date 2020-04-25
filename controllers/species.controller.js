@@ -14,22 +14,19 @@ async function createSpecies(req, res, next) {
 }
 
 async function deleteSpecies(req, res, next) {
-  const { id } = req.params.id;
-  SpeciesService.deleteSpecies(id)
+  SpeciesService.deleteSpecies(req.params.id)
     .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
 
 async function updateSpecies(req, res, next) {
-  const { id } = req.params.id;
-  SpeciesService.updateSpecies(id, req.body)
+  SpeciesService.updateSpecies(req.params.id, req.body)
     .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
 
 async function getById(req, res, next) {
-  const { id } = req.params.id;
-  SpeciesService.getById(id)
+  SpeciesService.getById(req.params.id)
     .then((result) => { return res.status(200).json(result.body); })
     .catch((error) => { next(error); });
 }

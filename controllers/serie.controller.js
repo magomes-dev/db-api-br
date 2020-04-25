@@ -15,22 +15,19 @@ async function createSerie(req, res, next) {
 }
 
 async function deleteSerie(req, res, next) {
-  const { id } = req.params.id;
-  SerieService.deleteSerie(id)
+  SerieService.deleteSerie(req.params.id)
     .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
 
 async function updateSerie(req, res, next) {
-  const { id } = req.params.id;
-  SerieService.updateSerie(id, req.body)
+  SerieService.updateSerie(req.params.id, req.body)
     .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
 
 async function getById(req, res, next) {
-  const { id } = req.params.id;
-  SerieService.getById(id)
+  SerieService.getById(req.params.id)
     .then((result) => { return res.status(200).json(result); })
     .catch((error) => { next(error); });
 }
