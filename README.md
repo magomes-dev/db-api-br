@@ -1,6 +1,6 @@
 ![logo](https://img.elo7.com.br/product/original/1C553C0/painel-festa-2x1m-dragon-ball-super-goku.jpg)
 
-# Dragon Ball API - BR ![Node.js CI](https://github.com/magomes-dev/db-api-br/workflows/Node.js%20CI/badge.svg)
+# Dragon Ball API - BR ![Node.js CI](https://github.com/magomes-dev/db-api-br/workflows/Node.js%20CI/badge.svg) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6U8D2DA5C4N6N&source=url)
 Dragon Ball API - BR é uma API RESTful inspirada na série de televisão Dragon Ball. Uma base de dados colaborativa com as principais informações dos personagens como: nome, planeta de origem, saga de origem e raça.
 
 ## Uso da API
@@ -62,5 +62,11 @@ DB_NAME="db-api-br"
 * **Matheus Gomes** - [LinkedIn](https://www.linkedin.com/in/matheusandradegomes/) - [Instagram](https://www.instagram.com/gomesreal/)
 
 ## Agradecimentos
-* [Allan Webber](https://github.com/allanweber) - Por ser uma referência pra mim e por sempre estar disponível para tirar minhas dúvidas técnicas.
+* [Allan Webber](https://github.com/allanweber) - Por ser uma referência tecnica pra mim e por sempre estar disponível para tirar minhas dúvidas técnicas.
 * [Paul](https://github.com/phalt) - Criador da [SWAPI](https://swapi.co) e [PokéAPI](https://pokeapi.co) - Inspiração para este projeto.
+
+## Doação :gift_heart:
+Se você gostou deste projeto ou apenas se sente generoso, considere me pagar um café :coffee: ou me presentear com uma cerveja :beer: </br> </br>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6U8D2DA5C4N6N&source=url"><img src="https://svgshare.com/i/KVP.svg" height="40"></a>  
+
+
