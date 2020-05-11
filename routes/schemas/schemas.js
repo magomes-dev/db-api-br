@@ -51,7 +51,7 @@ const planets = {
 
 const characters = {
   create: Joi.object().keys({
-    name: Joi.string().min(3).max(100).required(),
+    name: Joi.string().regex(/^(?:m|M|f|F)$/).min(3).max(100).required(),
     gender: Joi.string().min(1).max(1).required(),
     image: Joi.string(),
     speciesId: Joi.number().integer().required(),
