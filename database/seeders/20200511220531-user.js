@@ -12,15 +12,9 @@ module.exports = {
       firstName: 'admin',
       lastName: 'sys',
       hash: senha,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }]);
-    // ,
-    // {
-    //   userName: 'root',
-    //   email: 'root@gmail.com',
-    //   firstName: 'root',
-    //   lastName: 'system',
-    //   hash: senha,
-    // }
   },
 
   down: (queryInterface, Sequelize) => {
