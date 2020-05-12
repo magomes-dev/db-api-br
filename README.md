@@ -25,7 +25,7 @@ Certifique-se que tenha instalado em sua máquina
  $ docker pull mariadb
 ```
 ``` bash
- $ docker run -d --name maria -e MARIADB_PASSWORD=root -e MARIADB_USER=dbapi -e MARIADB_DATABASE=db-api-br -p 3306:3306  mariadb
+ $ docker run -d --name maria -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db-api-br -p 3306:3306 mariadb
 ```
 ### Variáveis de ambiente
 Crie na raiz do projeto o arquivo .env com os seguintes parametros:
