@@ -55,7 +55,7 @@ const characters = {
     gender: Joi.string().min(1).max(1).required(),
     image: Joi.string(),
     speciesId: Joi.number().integer().required(),
-    originPlanetId: Joi.number().integer().required(),
+    originPlanetId: Joi.number().integer().optional(),
     originalSerieId: Joi.number().integer().required(),
   }),
   update: Joi.object().keys({

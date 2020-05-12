@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db-api-br
+    ports:
+      - 3306:3306
+  dbapibr:
+    container_name: webapi-dbapibr
+    image: dbapibr
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
