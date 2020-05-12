@@ -20,30 +20,26 @@ Certifique-se que tenha instalado em sua máquina
 ``` bash
  $ git clone https://github.com/magomes-dev/db-api-br.git
 ```
-### Criando uma instância do MariaDb em um container Docker
+### Docker Compose
+No terminal navegue até a raiz do projeto
 ``` bash
- $ docker pull mariadb
-```
-``` bash
- $ docker run -d --name maria -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db-api-br -p 3306:3306 mariadb
-```
-### Variáveis de ambiente
-Crie na raiz do projeto o arquivo .env com os seguintes parametros:
-``` c#
-DB_HOST="127.0.0.1"
-DB_USER="user_dbapi"
-DB_KEY="root"
-DB_NAME="db-api-br"
+ $ docker-compose up
 ```
 
-### Instalando as dependências do projeto
+### Migrations
+Após subir os containers no docker, em uma nova janela do terminal navegue até a raiz do projeto:
 ``` bash
- $ npm install
+ $ npx sequelize db:migrate  
 ```
-### Executando o projeto
+
+### Seeds
+Para popular a base de dados local com alguns dados iniciais:
 ``` bash
- $ npm start
+ $ npx sequelize db:seed:all  
 ```
+### Acesso
+ - A API estará rodando localhost na porta 8080, você pode logar com o usuário: admin, senha: 123456
+ - O banco de dados estará rodando localhost na porta 3306, você pode logar com o usuário: root, senha: root
 
 ## Construído com:
 * Node.JS
