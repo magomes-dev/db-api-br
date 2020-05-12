@@ -62,6 +62,8 @@ module.exports = {
       speciesId: saiyan.id,
       originPlanetId: vegeta.id,
       originalSerieId: db.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Trunks',
@@ -70,6 +72,8 @@ module.exports = {
       speciesId: saiyanTerraqueo.id,
       originPlanetId: terra.id,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Vegeta',
@@ -78,6 +82,8 @@ module.exports = {
       speciesId: saiyan.id,
       originPlanetId: vegeta.id,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Gohan',
@@ -86,6 +92,8 @@ module.exports = {
       speciesId: saiyanTerraqueo.id,
       originPlanetId: terra.id,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Piccolo',
@@ -94,6 +102,8 @@ module.exports = {
       speciesId: namekian.id,
       originPlanetId: namek.id,
       originalSerieId: db.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Yamcha',
@@ -102,6 +112,8 @@ module.exports = {
       speciesId: terraqueo.id,
       originPlanetId: terra.id,
       originalSerieId: db.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Krillin',
@@ -110,6 +122,8 @@ module.exports = {
       speciesId: terraqueo.id,
       originPlanetId: terra.id,
       originalSerieId: db.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Frieza',
@@ -118,6 +132,8 @@ module.exports = {
       speciesId: frieza.id,
       originPlanetId: null,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Cell',
@@ -126,6 +142,8 @@ module.exports = {
       speciesId: android.id,
       originPlanetId: null,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Majin Buu',
@@ -134,6 +152,8 @@ module.exports = {
       speciesId: majin.id,
       originPlanetId: null,
       originalSerieId: dbz.id,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 
