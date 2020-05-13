@@ -11,8 +11,6 @@ A API está disponivel em https://db-api-br.herokuapp.com/ </br>
 
 ### Pré-requisitos 
 Certifique-se que tenha instalado em sua máquina
-* [Node.Js](https://nodejs.org/en/download/)  
-* Npm
 * [Docker](https://docs.docker.com/)
 * [Git](https://git-scm.com/downloads)
 
