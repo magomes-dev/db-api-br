@@ -30,7 +30,7 @@ const routes = (app) => {
     next();
   });
   app.get('/', (req, res) => {
-    res.json({ 'db-api-br': 'Seja bem vindo! Consulte a documentação da API Dragon Ball em: https://documenter.getpostman.com/view/2137744/SzYbzHpb' });
+    res.json({ 'db-api-br': 'Seja bem vindo Numeria! Consulte a documentação da API Dragon Ball em: https://documenter.getpostman.com/view/2137744/SzYbzHpb' });
   });
 
   app.use('/v1/planets', planets);
